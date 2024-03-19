@@ -181,61 +181,12 @@ pages.forEach(page => {
   observer.observe(page);
 });
 
-    if (window.innerWidth < 450) {
-  var styleSheets = 'styles.css';
-  var rules = '';
-  var foundStylesheet = false;
+var viewportMetaTag = document.querySelector('meta[name="viewport"]');
 
-  var styleSheetsList = Array.from(document.styleSheets);
-  for (var i = 0; i < styleSheetsList.length; i++) {
-    var styleSheet = styleSheetsList[i];
-    if (styleSheet.href && styleSheet.href.includes(styleSheets)) {
-      var cssRules = styleSheet.cssRules || styleSheet.rules;
-      rules = rules.concat(Array.from(cssRules));
-      foundStylesheet = true;
-      break;
-    }
-  }
-
-  if (foundStylesheet) {
-    var rule = rules;
-
-    if (rule.style) {
-      var property = rule.style;
-      var value = rule.style.getPropertyValue(property);
-      if (value.includes('px')) {
-        var newValue = parseFloat(value) / 450 * 100;
-        rule.style.setProperty(property, newValue + 'vw');
-      }
-    }
-  }
+if (window.innerWidth <= 400){
+viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.35');
 }
-else if (window.innerWidth > 1040) {
-  var styleSheets = 'styles.css';
-  var rules = '';
-  var foundStylesheet = false;
 
-  var styleSheetsList = Array.from(document.styleSheets);
-  for (var i = 0; i < styleSheetsList.length; i++) {
-    var styleSheet = styleSheetsList[i];
-    if (styleSheet.href && styleSheet.href.includes(styleSheets)) {
-      var cssRules = styleSheet.cssRules || styleSheet.rules;
-      rules = rules.concat(Array.from(cssRules));
-      foundStylesheet = true;
-      break;
-    }
-  }
-
-  if (foundStylesheet) {
-    var rule = rules;
-
-    if (rule.style) {
-      var property = rule.style;
-      var value = rule.style.getPropertyValue(property);
-      if (value.includes('px')) {
-        var newValue = parseFloat(value) / 150 * 100;
-        rule.style.setProperty(property, newValue + 'vw');
-      }
-    }
-  }
+else if(window.innerWidth >= 1250){
+viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.85');
 }

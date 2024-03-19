@@ -154,9 +154,10 @@ background-size: cover;
 position:fixed;
 top:-8px;
 right:15px;
-font-size:30px;
+font-size: 30px;
 color:var(--dark-blue);
 transition-duration:0.2s;
+width:600px;
 -webkit-transition:0.2s
 z-index:1000;
 font-weight: normal;
@@ -170,16 +171,18 @@ background-repeat:no-repeat;
 box-sizing: border-box;
 box-shadow:0 0 15px #00000055;
 position:relative;
-height:1110.23622px;
-width:787.40157px;
+height:297mm;
+width:210mm;
 margin:15px auto;
+overflow:hidden;
 }
 .cover{
 margin-top:150px;
+background-image:url('images/cover.svg');
 }
 .page{
-width:calc(0.97*787.40157px+1px);
-height:calc(0.89*1110.23622px*297mm);
+width:calc(0.97*210mm+1px);
+height:calc(0.89*297.5mm);
 border:0.001px transparent solid;
 padding:40px 10px 7px 10px;
 box-sizing: border-box;
