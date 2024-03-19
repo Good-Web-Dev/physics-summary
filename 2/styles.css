@@ -39,8 +39,8 @@ font-family:'icons';
 src:url('https://good-web-dev.github.io/biology-summary/2-3/fonts/icons.woff2') format('woff2');
 }
 :root{
---lime:#bfeaff;
---peach:#ffbe95;
+--steelblue:#bfeaff;
+--light-orange:#ffbe95;
 --dark-blue:#094594;
 --light-blue:#2B67A6;
 --skyblue:#BFD8EC;
@@ -170,18 +170,18 @@ background-repeat:no-repeat;
 box-sizing: border-box;
 box-shadow:0 0 15px #00000055;
 position:relative;
-height:297mm;
-width:210mm;
+height:1110.23622px;
+width:787.40157px;
 margin:15px auto;
 }
 .cover{
 margin-top:150px;
 }
 .page{
-width:calc(0.97*210mm+1px);
-height:calc(0.89*297mm);
+width:calc(0.97*787.40157px+1px);
+height:calc(0.89*1110.23622px*297mm);
 border:0.001px transparent solid;
-padding:60px 10px 7px 10px;
+padding:40px 10px 7px 10px;
 box-sizing: border-box;
 }
 .page-number{
@@ -206,13 +206,13 @@ display:flex;
 font-family:icons;
 font-size:60px;
 text-align:center;
-margin:-10px auto -20px auto;
+margin:20px auto -20px auto;
 display:inline;
 position:relative;
 top:-30px;
 }
 .lesson-title{
-background-color:var(--peach);
+background-color:var(--light-orange);
 }
 .lesson-title, .subtitles, .important-information{
 width:fit-content;
@@ -236,7 +236,7 @@ line-height:1.6;
 background-color:var(--light-yellow);
 }
 .subtitles, .subtitles-content{
-background-color:var(--lime);
+background-color:var(--steelblue);
 }
 .subtitles-content-nobg{
 background-color:transparent;
