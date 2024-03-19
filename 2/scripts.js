@@ -210,3 +210,32 @@ pages.forEach(page => {
     }
   }
 }
+else if (window.innerWidth > 1040) {
+  var styleSheets = 'styles.css';
+  var rules = '';
+  var foundStylesheet = false;
+
+  var styleSheetsList = Array.from(document.styleSheets);
+  for (var i = 0; i < styleSheetsList.length; i++) {
+    var styleSheet = styleSheetsList[i];
+    if (styleSheet.href && styleSheet.href.includes(styleSheets)) {
+      var cssRules = styleSheet.cssRules || styleSheet.rules;
+      rules = rules.concat(Array.from(cssRules));
+      foundStylesheet = true;
+      break;
+    }
+  }
+
+  if (foundStylesheet) {
+    var rule = rules;
+
+    if (rule.style) {
+      var property = rule.style;
+      var value = rule.style.getPropertyValue(property);
+      if (value.includes('px')) {
+        var newValue = parseFloat(value) / 150 * 100;
+        rule.style.setProperty(property, newValue + 'vw');
+      }
+    }
+  }
+}
