@@ -28,11 +28,11 @@ color:#000 !important;
 }
 @font-face{
 font-family:'helvetica-world-bold';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/fonts/Helvetica-World-Bold.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/physics-summary/2/fonts/Helvetica-World-Bold.woff2') format('woff2');
 }
 @font-face{
 font-family:'helvetica-world';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/fonts/Helvetica-World.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/physics-summary/2/fonts/Helvetica-World.woff2') format('woff2');
 }
 @font-face{
 font-family:'icons';
@@ -284,6 +284,12 @@ background-color:#094594;
 .formulas{
 font-family: times;
 pointer-events: none !important;
+}
+.laws{
+font-size: 16px;
+}
+.formulas-explanation sub, .formulas-explanation sup{
+font-size:14px;
 }
 #loaderBox{
 position: fixed;

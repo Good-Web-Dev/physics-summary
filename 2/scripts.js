@@ -53,7 +53,7 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\n\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
 if (userChoiceInPrinting) {
   print();
 }
@@ -120,7 +120,7 @@ imgTag.style.backgroundRepeat = 'no-repeat';
 
 var pElement = document.createElement("p");
 pElement.classList.add('printed-from');
-pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.rf.gd/physics-summary/2";
+pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/physics-summary/2";
 
 for (var i = 0; i < divElements.length; i++) {
   divElements[i].appendChild(pElement.cloneNode(true));
