@@ -36,7 +36,7 @@ src:url('https://good-web-dev.github.io/physics-summary/2/fonts/Helvetica-World.
 }
 @font-face{
 font-family:'icons';
-src:url('https://good-web-dev.github.io/biology-summary/2-3/fonts/icons.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/physics-summary/2/fonts/icons.woff2') format('woff2');
 }
 :root{
 --steelblue:#bfeaff;
@@ -101,9 +101,9 @@ font-family:helvetica-world-bold;
 font-weight: normal;
 }
 .header-btns:not(.exam, .color-inversion):hover:active{
-transition-duration:0.2s;
--webkit-transition:0.2s
-opacity:0.6;
+transition-duration:0.5s;
+-webkit-transition:0.5s
+opacity:0.5;
 }
 .version{
 left:10px;

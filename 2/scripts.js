@@ -181,12 +181,18 @@ pages.forEach(page => {
   observer.observe(page);
 });
 
-var viewportMetaTag = document.querySelector('meta[name="viewport"]');
-
-if (window.innerWidth <= 400){
-viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.35');
+function updateViewportMetaTag() {
+  var viewportMetaTag = document.querySelector('meta[name="viewport"]');
+  
+  if (screen.width <= 400) {
+    viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.35');
+  } else if (screen.width >= 1000) {
+    viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=1.0');
+  } else {
+    viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.45');
+  }
 }
 
-else if(window.innerWidth >= 1250){
-viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.85');
-}
+updateViewportMetaTag();
+
+window.addEventListener('resize', updateViewportMetaTag);
