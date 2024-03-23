@@ -55,6 +55,7 @@ const texts = [
 function printBtn(){
 const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\n\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
 if (userChoiceInPrinting) {
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=0.45');
   print();
 }
 }
@@ -187,7 +188,7 @@ function updateViewportMetaTag() {
   if (screen.width <= 400) {
     viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.35');
   } else if (screen.width >= 1000) {
-    viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=1.0');
+    viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.55');
   } else {
     viewportMetaTag.setAttribute('content', 'width=device-width, initial-scale=0.45');
   }
