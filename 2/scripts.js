@@ -76,7 +76,7 @@ document.querySelector('.color-inversion').classList.toggle('activated');
 
 function examBtn() {
 document.querySelector('.exam').classList.toggle('activated');
-  var tables = document.querySelectorAll('.lessons table');
+  var tables = document.querySelectorAll('.lessons-terms table');
   for (var i = 0; i < tables.length; i++) {
     var cells = tables[i].querySelectorAll('td:nth-child(2)');
     cells.forEach(function (cell) {
