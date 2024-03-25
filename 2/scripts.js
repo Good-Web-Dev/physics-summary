@@ -15,6 +15,15 @@ for (var i = 0; i < contentElements.length; i++) {
     }
   }, 3000);
 
+window.addEventListener('scroll', function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+  const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+  const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  document.getElementById('progress-bar-inner').style.width = progress + '%';
+});
+
 const texts = [
       "سبحان الله وبحمده، سبحان الله العظيم",
       "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
