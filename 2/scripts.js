@@ -83,8 +83,15 @@ document.querySelector('.color-inversion').classList.toggle('activated');
   localStorage.setItem('colorInversionState', isInverted ? 'inverted' : '');
 }
 
+var examBtnClicked = false;
+
 function examBtn() {
-document.querySelector('.exam').classList.toggle('activated');
+  if (!examBtnClicked) {
+    alert("في وضع الاختبار، سيتم إخفاء بعض الكلمات التي نحسبها مهمة؛ لتختبر فيها حفظك وتراجع فيها معلوماتك.");
+    examBtnClicked = true;
+  }
+  
+  document.querySelector('.exam').classList.toggle('activated');
   var tables = document.querySelectorAll('.lessons-terms table');
   for (var i = 0; i < tables.length; i++) {
     var cells = tables[i].querySelectorAll('td:nth-child(2)');
@@ -108,6 +115,7 @@ if (colorInversionState === 'inverted') {
 
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
+  examBtnClicked = true;
   examBtn();
 }
 

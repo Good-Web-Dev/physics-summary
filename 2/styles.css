@@ -141,7 +141,7 @@ display:none;
 }
 header{
 width:100%;
-height:130px;
+height:100px;
 background-color:#fff;
 box-shadow:0 0 14px #000;
 position:fixed;
@@ -152,7 +152,7 @@ background-size: cover;
 }
 .header-title{
 position:fixed;
-top:-4px;
+top:-8px;
 right:15px;
 font-size: 30px;
 color:var(--dark-blue);
@@ -166,16 +166,17 @@ font-family:helvetica-world-bold;
 #progress-bar {
 width: 100%;
 height: 5px;
-background-color: transparent;
+background-color: #A0A0A0;
 position: fixed;
-top: 130px;
+top: 100px;
 left: 0;
 z-index: 1025;
+box-shadow:0 3px 10px #00000055;
 }
 #progress-bar-inner {
 height: 100%;
 background-image:linear-gradient(-90deg, var(--dark-blue), var(--dark-blue), var(--light-blue), var(--light-blue), var(--steelblue));
-box-shadow: 0px 0px 10px #fff;
+box-shadow: 0px 0px 15px #fff;
 width: 0;
 }
 .marquee{
@@ -183,12 +184,18 @@ font-family: helvetica-world-bold;
 font-size: 18px;
 color: var(--dark-blue);
 position: relative;
-top: 75px;
+top: 87px;
 white-space: nowrap;
 overflow: hidden;
 }
+.marquee div{
+background:#ddd;
+box-shadow:0 3px 10px #00000055;
+}
 .marquee p{
-animation: marquee-scroll 20s linear infinite;
+animation: marquee-scroll 15s linear infinite;
+text-align:center;
+padding:2px 0;
 }
 .marquee a{
 color: var(--light-blue);
@@ -222,7 +229,7 @@ margin:15px auto;
 overflow:hidden;
 }
 .cover{
-margin-top:150px;
+margin-top:185px;
 background-image:url('images/cover.svg');
 }
 .page{
