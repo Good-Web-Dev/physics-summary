@@ -62,21 +62,32 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const userChoiceInPrinting = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\n\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
-if (userChoiceInPrinting) {
+const printingConfirm = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\n\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+if (printingConfirm){
+gtag('event', 'print_button_click', {
+'event_category': 'Button',
+'event_label': 'print_button_click'
+});
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=0.45');
-  print();
+print();
 }
 }
 
 function versionBtn(){
-const userChoiceInVersion = alert('هذا الإصدار الأول.');
-if (userChoiceInVersion) {
-    alert('');
-  }
+const versionConfirm = confirm('هذا الإصدار الأول.');
+if (versionConfirm){
+gtag('event', 'version_button_click', {
+'event_category': 'Button',
+'event_label': 'version_button_click'
+});
+}
 }
 
 function colorInversionBtn() {
+gtag('event', 'color_inversion__button_click', {
+'event_category': 'Button',
+'event_label': 'color_inversion__button_click'
+});
   document.querySelector('*').classList.toggle('inverted');
 document.querySelector('.color-inversion').classList.toggle('activated');
   var isInverted = document.querySelector('*').classList.contains('inverted');
@@ -86,6 +97,10 @@ document.querySelector('.color-inversion').classList.toggle('activated');
 var examBtnClicked = false;
 
 function examBtn() {
+gtag('event', 'exam_button_click', {
+'event_category': 'Button',
+'event_label': 'exam_button_click'
+});
   if (!examBtnClicked) {
     alert("في وضع الاختبار، سيتم إخفاء بعض الكلمات التي نحسبها مهمة؛ لتختبر فيها حفظك وتراجع فيها معلوماتك.");
     examBtnClicked = true;
@@ -118,6 +133,13 @@ if (examModeState === 'examMode') {
   examBtnClicked = true;
   examBtn();
 }
+
+document.querySelector('.marquee a').addEventListener('click', function(){
+gtag('event', 'mr_mohammed_zeyada_channel_visit', {
+'event_category': 'Link',
+'event_label': 'mr_mohammed_zeyada_channel_visit'
+});
+});
 
 const imgTags = document.querySelectorAll('img');
 
