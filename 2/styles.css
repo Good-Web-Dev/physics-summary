@@ -197,6 +197,7 @@ box-shadow:0 3px 10px #00000055;
 animation: marquee-scroll 15s linear infinite;
 text-align:center;
 padding:2px 0;
+z-index: 950;
 }
 .marquee a{
 color: var(--light-blue);
