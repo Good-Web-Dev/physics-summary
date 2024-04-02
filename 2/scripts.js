@@ -202,13 +202,16 @@ const observerOptions = {
   rootMargin: '0px',
   threshold: 1
 };
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting && entry.intersectionRatio === 1) {
       const dataTitle = entry.target.getAttribute('data-title');
       if (dataTitle) {
-        headerTitle.textContent = dataTitle;
+        if (dataTitle.length >= 50 ) {
+          headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
+        } else {
+          headerTitle.textContent = dataTitle;
+        }
         previousTitle = dataTitle;
       } else {
         headerTitle.textContent = previousTitle;
