@@ -36,7 +36,11 @@ src:url('https://good-web-dev.github.io/physics-summary/2/fonts/Helvetica-World.
 }
 @font-face{
 font-family:'icons';
-src:url('https://good-web-dev.github.io/physics-summary/2/fonts/icons.woff2') format('woff2');
+src:url('fonts/icons.woff2') format('woff2');
+}
+@font-face{
+font-family:'basmalah';
+src:url('fonts/basmalah.woff2') format('woff2');
 }
 :root{
 --steelblue:#bfeaff;
@@ -50,7 +54,7 @@ src:url('https://good-web-dev.github.io/physics-summary/2/fonts/icons.woff2') fo
 }
 ::selection{
 color:#000;
-background-color:lavender;
+background-color:powderblue;
 }
 img, br{
 user-select:none;
@@ -75,6 +79,91 @@ opacity:0;
 to{
 opacity:1;
 }
+}
+.rating-popup.show{
+display: grid;
+animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn{
+from{
+opacity: 0;
+}
+to{
+opacity: 1;
+}
+}
+@keyframes fadeOut{
+from{
+opacity: 1;
+}
+to{
+opacity: 0;
+}
+}
+.rating-popup{
+background-color:#eee;
+width:190px;
+height:150px;
+position:fixed;
+fixed:30px;
+left:100px;
+bottom:180px;
+border-radius:4px;
+box-shadow:0 0 15px #00000055;
+height: 140px;
+padding:5px;
+display:none;
+grid-template-columns:1fr 1fr;
+justify-items:center;
+z-index:1150;
+transform: scale(1.5);
+}
+.rating-popup p{
+font-family:helvetica-world-bold;
+color:#094594;
+grid-column:1/3;
+position:relative;
+top:-40px;
+}
+.rating-popup h4{
+font-family:helvetica-world-bold;
+font-weight: normal;
+font-size:18px;
+color:#094594;
+position:relative;
+top:-19px;
+right:-70px;
+}
+.rating-popup button{
+border:none;
+background-color:transparent;
+box-shadow: 0 0 5px #094594dd;
+color:#094594;
+border-radius:2px;
+font-family:helvetica-world-bold;
+position:relative;
+padding-bottom: 4px;
+width:70px;
+font-size:14px;
+top:-35px;
+}
+.rating-popup button:hover:active{
+box-shadow: 0 0 5px #094594dd,  0 0 5px #094594dd;
+cursor: pointer;
+}
+#crp{
+border:none;
+font-size:25px;
+height:fit-content;
+width:fit-content;
+right:-30px;
+top:5px;
+font-family:icons;
+box-shadow:none;
+}
+#crp:hover:active{
+opacity:0.5;
+cursor: pointer;
 }
 .header-btns{
 position:fixed;
@@ -260,7 +349,7 @@ font-size:22px;
 display:flex;
 }
 .basmalah{
-font-family:icons;
+font-family:basmalah;
 font-size:60px;
 text-align:center;
 margin:20px auto -20px auto;

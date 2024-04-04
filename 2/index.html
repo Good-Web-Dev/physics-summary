@@ -51,6 +51,15 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </div>
 </div>
 <div class="content">
+<div class="rating-popup">
+<button onclick="closeRatingPopup()" id="crp">X</button>
+<h4>استطلاع:</h4>
+<p>
+هل استفدت من هذا الملخص؟
+</p>
+<button onclick="like()">نعم</button>
+<button onclick="dislike()">لا</button>
+</div>
 <header class="dont-print">
 <button class="print header-btns dont-print" onclick="printBtn()"><i class="fa fas fa-print">
 <br>
@@ -79,6 +88,8 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </div>
 <div id="progress-bar" class="dont-print">
 <div id="progress-bar-inner" class="dont-print"></div>
+</div>
+<div>
 </div>
 </header>
 <!-- ******************** الغلاف ******************** -->

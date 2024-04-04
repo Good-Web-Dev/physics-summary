@@ -24,6 +24,48 @@ window.addEventListener('scroll', function() {
   document.getElementById('progress-bar-inner').style.width = progress + '%';
 });
 
+var ratingPopup = document.querySelector('.rating-popup');
+
+var userChoice = false;
+var userChoosed = localStorage.getItem('userChoice');
+
+if (userChoosed == undefined) {
+  setTimeout(() => {
+    ratingPopup.classList.add('show');
+  }, 5 * 60 * 1000);
+}
+
+function closeRatingPopup() {
+gtag('event', 'close_rating_popup', {
+'event_category': 'Button',
+'event_label': 'close_rating_popup'
+});
+  ratingPopup.style.animation = "fadeOut 0.5s ease-out";
+  setTimeout(function(){
+    ratingPopup.classList.remove('show');
+  }, 500);
+}
+
+function like() {
+gtag('event', 'like', {
+'event_category': 'Button',
+'event_label': 'like'
+});
+  userChoice = true;
+  localStorage.setItem('userChoice', true);
+  closeRatingPopup();
+}
+
+function dislike() {
+gtag('event', 'dislike', {
+'event_category': 'Button',
+'event_label': 'dislike'
+});
+  userChoice = true;
+  localStorage.setItem('userChoice', true);
+  closeRatingPopup();
+}
+
 const texts = [
       "سبحان اللّٰه وبحمده، سبحان اللّٰه العظيم",
       "لا إله إلا اللّٰه وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
