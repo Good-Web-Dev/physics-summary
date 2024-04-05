@@ -36,11 +36,11 @@ src:url('https://good-web-dev.github.io/physics-summary/2/fonts/Helvetica-World.
 }
 @font-face{
 font-family:'icons';
-src:url('fonts/icons.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/physics-summary/2/fonts/icons.woff2') format('woff2');
 }
 @font-face{
 font-family:'basmalah';
-src:url('fonts/basmalah.woff2') format('woff2');
+src:url('https://good-web-dev.github.io/physics-summary/2/fonts/basmalah.woff2') format('woff2');
 }
 :root{
 --steelblue:#bfeaff;

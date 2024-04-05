@@ -15,6 +15,31 @@ for (var i = 0; i < contentElements.length; i++) {
     }
   }, 3000);
 
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          elmnt.removeAttribute("include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    }
+  }
+};
+
+includeHTML();
+
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -22,6 +47,28 @@ window.addEventListener('scroll', function() {
 
   const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
   document.getElementById('progress-bar-inner').style.width = progress + '%';
+});
+
+document.querySelector('.marquee a').addEventListener('click', function(){
+gtag('event', 'mr_mohammed_zeyada_channel_visit', {
+'event_category': 'Link',
+'event_label': 'mr_mohammed_zeyada_channel_visit'
+});
+});
+
+const imgTags = document.querySelectorAll('img');
+
+imgTags.forEach((imgTag) => {
+  const imgName = imgTag.getAttribute('data-img-name');
+
+  const bgSrc = `url(images/${imgName}.png) no-repeat`;
+  const src = `images/${imgName}.svg`;
+
+  imgTag.style.background = bgSrc;
+  imgTag.style.backgroundPosition = 'center';
+  imgTag.style.backgroundSize = 'contain';
+imgTag.style.backgroundRepeat = 'no-repeat';
+  imgTag.setAttribute('src', src);
 });
 
 var ratingPopup = document.querySelector('.rating-popup');
@@ -136,6 +183,13 @@ document.querySelector('.color-inversion').classList.toggle('activated');
   localStorage.setItem('colorInversionState', isInverted ? 'inverted' : '');
 }
 
+var colorInversionState = localStorage.getItem('colorInversionState');
+if (colorInversionState === 'inverted') {
+  document.querySelector('*').classList.add('inverted');
+  document.querySelector('.color-inversion').classList.add('activated');
+}
+
+
 var examBtnClicked = false;
 
 function examBtn() {
@@ -163,40 +217,12 @@ gtag('event', 'exam_button_click', {
   var isExamMode = tables[0].querySelector('td:nth-child(2)').classList.contains('hidden-exam');
   localStorage.setItem('examModeState', isExamMode ? 'examMode' : '');
 }
-
-var colorInversionState = localStorage.getItem('colorInversionState');
-if (colorInversionState === 'inverted') {
-  document.querySelector('*').classList.add('inverted');
-  document.querySelector('.color-inversion').classList.add('activated');
-}
-
+window.onload = function(){
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
   examBtnClicked = true;
   examBtn();
 }
-
-document.querySelector('.marquee a').addEventListener('click', function(){
-gtag('event', 'mr_mohammed_zeyada_channel_visit', {
-'event_category': 'Link',
-'event_label': 'mr_mohammed_zeyada_channel_visit'
-});
-});
-
-const imgTags = document.querySelectorAll('img');
-
-imgTags.forEach((imgTag) => {
-  const imgName = imgTag.getAttribute('data-img-name');
-
-  const bgSrc = `url(images/${imgName}.png) no-repeat`;
-  const src = `images/${imgName}.svg`;
-
-  imgTag.style.background = bgSrc;
-  imgTag.style.backgroundPosition = 'center';
-  imgTag.style.backgroundSize = 'contain';
-imgTag.style.backgroundRepeat = 'no-repeat';
-  imgTag.setAttribute('src', src);
-});
 
   var divElements = document.getElementsByClassName("pages");
 
@@ -207,6 +233,22 @@ pElement.textContent = "تمت طباعة هذا الملف من موقع: https
 for (var i = 0; i < divElements.length; i++) {
   divElements[i].appendChild(pElement.cloneNode(true));
 }
+
+var laws = document.querySelectorAll('.formulas.laws');
+
+function typesetFormulas() {
+  for (var i = 0; i < laws.length; i++) {
+    var law = laws[i].innerHTML;
+    laws[i].innerHTML = '$$' + law + '$$';
+  }
+
+  MathJax.typesetPromise().then(() => {
+  }).catch((err) => {
+    console.log('MathJax typesetting failed:', err.message);
+  });
+}
+
+setTimeout(typesetFormulas, 100);
 
 const pageDivs = document.querySelectorAll('.page');
 
@@ -233,6 +275,7 @@ function getPageNumberInEasternArabic(pageNumber) {
   easternArabicNumber += easternArabicNumerals[onesDigit];
   return easternArabicNumber;
 }
+
 
 const pages = document.querySelectorAll('.pages');
 const headerTitle = document.querySelector('.header-title');
@@ -265,6 +308,7 @@ const observer = new IntersectionObserver(entries => {
 pages.forEach(page => {
   observer.observe(page);
 });
+};
 
 function updateViewportMetaTag() {
   var viewportMetaTag = document.querySelector('meta[name="viewport"]');
