@@ -1,22 +1,24 @@
 @page{
 margin:0 !important;
-size:A4;
+size:210mm 297mm !important;
+width: 210mm !important;
+height: 297mm !important;
 padding:0 !important;
 }
 @media print{
 body{
 -webkit-print-color-adjust: exact;
+margin:0 !important;
+padding: 0 !important;
 }
 .pages{
 box-shadow:0 0 0 !important;
 margin:0 !important;
 padding: 0 !important;
+page-break-after: always !important;
 }
 .dont-print{
 display:none !important;
-}
-.printed-from{
-display:block !important;
 }
 .inverted{
 filter:invert(0%) !important;
@@ -217,17 +219,6 @@ text-shadow: 0px 0px 15px #000, 0px 0px 15px #000;
 }
 del{
 text-decoration:none;
-}
-.printed-from{
-position:absolute;
-bottom:3px;
-text-align:center;
-margin:0 27%;
-opacity:0.5;
-font-family:helvetica-world-bold;
-font-size:10px;
-z-index:10;
-display:none;
 }
 header{
 width:100%;

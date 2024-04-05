@@ -13,6 +13,7 @@ for (var i = 0; i < contentElements.length; i++) {
       contents[i].style.visibility = "visible";
       contents[i].style.animation = "fade-in 1s ease-in-out";
     }
+goIcludeHTML();
   }, 3000);
 
 function includeHTML() {
@@ -151,7 +152,7 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const printingConfirm = confirm('تأكد من أن جميع الصفحات قد تم تحميلها بشكل صحيح قبل الطباعة.\n\nملاحظة: قد يختلف التصميم عند الطباعة، وقد تستغرق الطباعة وقتًا طويلًا؛ لذا تحلَّ بالصبر.');
+const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى 79%؛ لتطبع لك كل صفحة بشكل كامل.');
 if (printingConfirm){
 gtag('event', 'print_button_click', {
 'event_category': 'Button',
@@ -189,7 +190,6 @@ if (colorInversionState === 'inverted') {
   document.querySelector('.color-inversion').classList.add('activated');
 }
 
-
 var examBtnClicked = false;
 
 function examBtn() {
@@ -214,10 +214,13 @@ gtag('event', 'exam_button_click', {
   for (var j = 0; j < del.length; j++) {
     del[j].classList.toggle('hidden-exam');
   }
+
   var isExamMode = tables[0].querySelector('td:nth-child(2)').classList.contains('hidden-exam');
   localStorage.setItem('examModeState', isExamMode ? 'examMode' : '');
 }
-window.onload = function(){
+
+function goIcludeHTML(){
+
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
   examBtnClicked = true;
@@ -298,7 +301,7 @@ const observer = new IntersectionObserver(entries => {
 pages.forEach(page => {
   observer.observe(page);
 });
-};
+}
 
 function updateViewportMetaTag() {
   var viewportMetaTag = document.querySelector('meta[name="viewport"]');
