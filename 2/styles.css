@@ -350,6 +350,7 @@ top:-30px;
 }
 .lesson-title{
 background-color:var(--light-orange);
+font-weight: normal;
 }
 .lesson-title, .subtitles, .important-information{
 width:fit-content;

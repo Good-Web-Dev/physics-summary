@@ -27,7 +27,7 @@ function includeHTML() {
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
           if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          if (this.status == 404) {elmnt.innerHTML = "HTML not found.";}
           elmnt.removeAttribute("include-html");
           includeHTML();
         }
@@ -45,9 +45,11 @@ window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
   const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-  const progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  var progress = (scrollTop / (scrollHeight - clientHeight)) * 100;
   document.getElementById('progress-bar-inner').style.width = progress + '%';
+if(progress >= 99){
+document.getElementById('progress-bar-inner').style.width = progress + 5 + '%';
+}
 });
 
 document.querySelector('.marquee a').addEventListener('click', function(){
@@ -152,7 +154,7 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى 79%؛ لتطبع لك كل صفحة بشكل كامل.');
+const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى 73%؛ لتطبع لك كل صفحة بشكل كامل.');
 if (printingConfirm){
 gtag('event', 'print_button_click', {
 'event_category': 'Button',
@@ -203,36 +205,37 @@ gtag('event', 'exam_button_click', {
   }
   
   document.querySelector('.exam').classList.toggle('activated');
-  var tables = document.querySelectorAll('.lessons-terms table');
-  for (var i = 0; i < tables.length; i++) {
-    var cells = tables[i].querySelectorAll('td:nth-child(2)');
-    cells.forEach(function (cell) {
-      cell.classList.toggle('hidden-exam');
-    });
-  }
   var del = document.querySelectorAll('del');
   for (var j = 0; j < del.length; j++) {
     del[j].classList.toggle('hidden-exam');
-  }
+del[j].addEventListener('click', function(){
+this.classList.toggle('hidden-exam');
+});
+}
 
-  var isExamMode = tables[0].querySelector('td:nth-child(2)').classList.contains('hidden-exam');
+  var isExamMode = del[0].classList.contains('hidden-exam');
   localStorage.setItem('examModeState', isExamMode ? 'examMode' : '');
 }
 
 function goIcludeHTML(){
-
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
   examBtnClicked = true;
   examBtn();
 }
 
-var laws = document.querySelectorAll('.formulas.laws');
+var laws = document.querySelectorAll('.formulas.laws:not(.inline)');
+var inlineLaws = document.querySelectorAll('.formulas.laws.inline');
 
 function typesetFormulas() {
   for (var i = 0; i < laws.length; i++) {
     var law = laws[i].innerHTML;
     laws[i].innerHTML = '$$' + law + '$$';
+  }
+
+for (var i = 0; i < inlineLaws.length; i++) {
+    var inlineLaw = inlineLaws[i].innerHTML;
+    inlineLaws[i].innerHTML = '\\(' + inlineLaw + '\\)';
   }
 
   MathJax.typesetPromise().then(() => {
@@ -285,7 +288,7 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting && entry.intersectionRatio === 1) {
       const dataTitle = entry.target.getAttribute('data-title');
       if (dataTitle) {
-        if (dataTitle.length >= 50 ) {
+        if (dataTitle.length >= 55) {
           headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
         } else {
           headerTitle.textContent = dataTitle;
