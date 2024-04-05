@@ -224,16 +224,6 @@ if (examModeState === 'examMode') {
   examBtn();
 }
 
-  var divElements = document.getElementsByClassName("pages");
-
-var pElement = document.createElement("p");
-pElement.classList.add('printed-from');
-pElement.textContent = "تمت طباعة هذا الملف من موقع: https://good-web-dev.github.io/physics-summary/2";
-
-for (var i = 0; i < divElements.length; i++) {
-  divElements[i].appendChild(pElement.cloneNode(true));
-}
-
 var laws = document.querySelectorAll('.formulas.laws');
 
 function typesetFormulas() {
