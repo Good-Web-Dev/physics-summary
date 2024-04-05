@@ -13,7 +13,6 @@ for (var i = 0; i < contentElements.length; i++) {
       contents[i].style.visibility = "visible";
       contents[i].style.animation = "fade-in 1s ease-in-out";
     }
-goIcludeHTML();
   }, 3000);
 
 function includeHTML() {
@@ -38,8 +37,10 @@ function includeHTML() {
     }
   }
 };
-
 includeHTML();
+window.setTimeout(function(){
+goIcludeHTML();
+}, 1000);
 
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -57,21 +58,6 @@ gtag('event', 'mr_mohammed_zeyada_channel_visit', {
 'event_category': 'Link',
 'event_label': 'mr_mohammed_zeyada_channel_visit'
 });
-});
-
-const imgTags = document.querySelectorAll('img');
-
-imgTags.forEach((imgTag) => {
-  const imgName = imgTag.getAttribute('data-img-name');
-
-  const bgSrc = `url(images/${imgName}.png) no-repeat`;
-  const src = `images/${imgName}.svg`;
-
-  imgTag.style.background = bgSrc;
-  imgTag.style.backgroundPosition = 'center';
-  imgTag.style.backgroundSize = 'contain';
-imgTag.style.backgroundRepeat = 'no-repeat';
-  imgTag.setAttribute('src', src);
 });
 
 var ratingPopup = document.querySelector('.rating-popup');
@@ -223,6 +209,21 @@ if (examModeState === 'examMode') {
   examBtnClicked = true;
   examBtn();
 }
+
+const imgTags = document.querySelectorAll('img');
+
+imgTags.forEach((imgTag) => {
+  const imgName = imgTag.getAttribute('data-img-name');
+
+  const bgSrc = `url(images/${imgName}.png)`;
+  const src = `images/${imgName}.svg`;
+
+  imgTag.style.background = bgSrc;
+  imgTag.style.backgroundPosition = 'center';
+  imgTag.style.backgroundSize = 'contain';
+  imgTag.style.backgroundRepeat = 'no-repeat';
+  imgTag.setAttribute('src', src);
+});
 
 var laws = document.querySelectorAll('.formulas.laws:not(.inline)');
 var inlineLaws = document.querySelectorAll('.formulas.laws.inline');
