@@ -40,7 +40,7 @@ function includeHTML() {
 includeHTML();
 window.setTimeout(function(){
 goIcludeHTML();
-}, 1000);
+}, 1500);
 
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -140,7 +140,7 @@ const texts = [
     getRandomText();
 
 function printBtn(){
-const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى 73%؛ لتطبع لك كل صفحة بشكل كامل.');
+const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى ٧٣٪؛ لتطبع لك كل صفحة بشكل كامل.');
 if (printingConfirm){
 gtag('event', 'print_button_click', {
 'event_category': 'Button',
