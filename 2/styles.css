@@ -15,6 +15,7 @@ padding: 0 !important;
 box-shadow:0 0 0 !important;
 margin:0 !important;
 padding: 0 !important;
+transform: scale(1) !important;
 page-break-after: always !important;
 }
 .dont-print{
@@ -307,11 +308,12 @@ box-shadow:0 0 15px #00000055;
 position:relative;
 height:297mm;
 width:210mm;
-margin:15px auto;
+margin:145px auto;
 overflow:hidden;
+transform: scale(1.1);
 }
 .cover{
-margin-top:185px;
+margin-top:235px;
 background-image:url('images/cover.svg');
 }
 .page{
@@ -488,7 +490,7 @@ position:absolute;
 top:150px;
 }
 .break{
-height:150px;
+height:90px;
 width:100%;
 }
 footer {

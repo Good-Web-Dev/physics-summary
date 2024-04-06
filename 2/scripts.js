@@ -189,11 +189,16 @@ gtag('event', 'exam_button_click', {
     alert("في وضع الاختبار، سيتم إخفاء بعض الكلمات التي نحسبها مهمة؛ لتختبر فيها حفظك وتراجع فيها معلوماتك.");
     examBtnClicked = true;
   }
-  
-  document.querySelector('.exam').classList.toggle('activated');
+var exam = document.querySelector('.exam');
+  exam.classList.toggle('activated');
   var del = document.querySelectorAll('del');
   for (var j = 0; j < del.length; j++) {
-    del[j].classList.toggle('hidden-exam');
+if (exam.classList.contains('activated')){
+del[j].classList.add('hidden-exam');
+}
+else{
+del[j].classList.remove('hidden-exam');
+}
 del[j].addEventListener('click', function(){
 this.classList.toggle('hidden-exam');
 });
@@ -273,38 +278,45 @@ function getPageNumberInEasternArabic(pageNumber) {
   return easternArabicNumber;
 }
 
-
 const pages = document.querySelectorAll('.pages');
 const headerTitle = document.querySelector('.header-title');
 
 let previousTitle = '';
 
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 1
-};
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && entry.intersectionRatio === 1) {
-      const dataTitle = entry.target.getAttribute('data-title');
-      if (dataTitle) {
-        if (dataTitle.length >= 55) {
-          headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
-        } else {
-          headerTitle.textContent = dataTitle;
-        }
-        previousTitle = dataTitle;
-      } else {
-        headerTitle.textContent = previousTitle;
-      }
+const updateHeaderTitle = () => {
+  let visiblePage = null;
+  pages.forEach(page => {
+    const rect = page.getBoundingClientRect();
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      visiblePage = page;
     }
   });
-}, observerOptions);
 
-pages.forEach(page => {
-  observer.observe(page);
-});
+  if (visiblePage) {
+    const dataTitle = visiblePage.getAttribute('data-title');
+    if (dataTitle) {
+      if (dataTitle.length >= 55) {
+        headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
+      } else {
+        headerTitle.textContent = dataTitle;
+      }
+      if (dataTitle !== previousTitle) {
+        headerTitle.style.animation = 'none';
+        void headerTitle.offsetWidth;
+        headerTitle.style.animation = 'fade-in 0.5s ease';
+      }
+      previousTitle = dataTitle;
+    } else {
+      headerTitle.textContent = previousTitle;
+    }
+  } else {
+    headerTitle.textContent = previousTitle;
+  }
+};
+
+window.addEventListener('scroll', updateHeaderTitle);
+
+updateHeaderTitle();
 }
 
 function updateViewportMetaTag() {
