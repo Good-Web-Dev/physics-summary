@@ -245,6 +245,16 @@ z-index:1000;
 font-weight: normal;
 font-family:helvetica-world-bold;
 }
+@keyframes translate-right{
+from{
+transform: translateX(100px);
+opacity: 0;
+}
+to{
+transform: translateX(0px);
+opacity: 1;
+}
+}
 #progress-bar {
 width: 100%;
 height: 5px;

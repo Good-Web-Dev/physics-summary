@@ -215,6 +215,14 @@ if (examModeState === 'examMode') {
   examBtn();
 }
 
+ScrollReveal().reveal('.pages:not(.cover)', {
+  delay: 100,
+  reset: true,
+  origin: 'right',
+  distance: '100px',
+  easing: 'ease-in-out',
+});
+
 const imgTags = document.querySelectorAll('img');
 
 imgTags.forEach((imgTag) => {
@@ -303,7 +311,7 @@ const updateHeaderTitle = () => {
       if (dataTitle !== previousTitle) {
         headerTitle.style.animation = 'none';
         void headerTitle.offsetWidth;
-        headerTitle.style.animation = 'fade-in 0.5s ease';
+        headerTitle.style.animation = 'translate-right 0.5s ease-in-out';
       }
       previousTitle = dataTitle;
     } else {
