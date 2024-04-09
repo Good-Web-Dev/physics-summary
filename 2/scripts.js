@@ -215,19 +215,30 @@ if (examModeState === 'examMode') {
   examBtn();
 }
 
-ScrollReveal().reveal('.pages:not(.cover)', {
-  delay: 100,
-  reset: true,
-  origin: 'right',
-  distance: '100px',
-  easing: 'ease-in-out',
+var willPrint = false;
+window.addEventListener('beforeprint', function(){
+  willPrint = true;
 });
+window.addEventListener('afterprint', function(){
+  willPrint = false;
+});
+
+if (!willPrint) {
+  ScrollReveal().reveal('.pages',{
+    delay: 100,
+    reset: true,
+    easing: 'ease-in-out',
+    duration: 700,
+    opacity: 0
+  });
+} else {
+  ScrollReveal().destroy();
+}
 
 const imgTags = document.querySelectorAll('img');
 
 imgTags.forEach((imgTag) => {
   const imgName = imgTag.getAttribute('data-img-name');
-
   const bgSrc = `url(images/${imgName}.png)`;
   const src = `images/${imgName}.svg`;
 
@@ -311,7 +322,7 @@ const updateHeaderTitle = () => {
       if (dataTitle !== previousTitle) {
         headerTitle.style.animation = 'none';
         void headerTitle.offsetWidth;
-        headerTitle.style.animation = 'translate-right 0.5s ease-in-out';
+        headerTitle.style.animation = 'fade-in 0.7s ease-in-out';
       }
       previousTitle = dataTitle;
     } else {
