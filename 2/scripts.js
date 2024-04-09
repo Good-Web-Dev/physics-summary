@@ -40,7 +40,7 @@ function includeHTML() {
 includeHTML();
 window.setTimeout(function(){
 goIcludeHTML();
-}, 1500);
+}, 2000);
 
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -220,6 +220,12 @@ window.addEventListener('beforeprint', function(){
   willPrint = true;
 });
 window.addEventListener('afterprint', function(){
+  willPrint = false;
+});
+window.addEventListener('inbeforeprint', function(){
+  willPrint = true;
+});
+window.addEventListener('onafterprint', function(){
   willPrint = false;
 });
 
