@@ -215,21 +215,6 @@ if (examModeState === 'examMode') {
   examBtn();
 }
 
-var willPrint = false;
-window.addEventListener('beforeprint', function(){
-  willPrint = true;
-});
-window.addEventListener('afterprint', function(){
-  willPrint = false;
-});
-window.addEventListener('inbeforeprint', function(){
-  willPrint = true;
-});
-window.addEventListener('onafterprint', function(){
-  willPrint = false;
-});
-
-if (!willPrint) {
   ScrollReveal().reveal('.pages',{
     delay: 100,
     reset: true,
@@ -237,9 +222,16 @@ if (!willPrint) {
     duration: 700,
     opacity: 0
   });
-} else {
-  ScrollReveal().destroy();
+
+var srPages = document.querySelectorAll('.pages');
+for (var i = 0; i < srPages.length; i++) {
+  (function(index) {
+    window.addEventListener('beforeprint', function() {
+      srPages[index].style.opacity = '1';
+    });
+  })(i);
 }
+
 
 const imgTags = document.querySelectorAll('img');
 
@@ -303,8 +295,8 @@ function getPageNumberInEasternArabic(pageNumber) {
   return easternArabicNumber;
 }
 
-const pages = document.querySelectorAll('.pages');
-const headerTitle = document.querySelector('.header-title');
+var pages = document.querySelectorAll('.pages');
+var headerTitle = document.querySelector('.header-title');
 
 let previousTitle = '';
 
