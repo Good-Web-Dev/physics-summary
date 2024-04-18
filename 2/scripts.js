@@ -67,6 +67,7 @@ var userChoosed = localStorage.getItem('userChoice');
 
 if (userChoosed == undefined) {
   setTimeout(() => {
+    ratingPopup.style.animation = "fadeIn 0.5s ease-in";
     ratingPopup.classList.add('show');
   }, 5 * 60 * 1000);
 }
@@ -152,7 +153,7 @@ print();
 }
 
 function versionBtn(){
-const versionConfirm = confirm('هذا الإصدار الأول.');
+const versionConfirm = confirm('هذا الإصدار الأول، وهو أول ثلاثة فصول زائدة الدرس الأول من الفصل الرابع.');
 if (versionConfirm){
 gtag('event', 'version_button_click', {
 'event_category': 'Button',

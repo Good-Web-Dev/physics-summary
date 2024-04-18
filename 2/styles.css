@@ -85,7 +85,6 @@ opacity:1;
 }
 .rating-popup.show{
 display: grid;
-animation: fadeIn 0.5s ease-in;
 }
 @keyframes fadeIn{
 from{
@@ -112,7 +111,8 @@ fixed:30px;
 left:100px;
 bottom:180px;
 border-radius:4px;
-box-shadow:0 0 15px #00000055;
+border:5px outset #094594bc;
+box-shadow: 0 0 15px #000000ab;
 height: 140px;
 padding:5px;
 display:none;
@@ -408,7 +408,7 @@ text-align:center;
 padding:12px 10px;
 font-size:18px;
 }
-.table .tr:nth-child(odd){
+.table .tr:nth-child(odd):not(.not-odd){
 background-color:var(--skyblue);
 }
 .index-table .tr:nth-child(even){
