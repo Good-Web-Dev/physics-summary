@@ -153,12 +153,13 @@ print();
 }
 
 function versionBtn(){
-const versionConfirm = confirm('هذا الإصدار الأول، وهو أول ثلاثة فصول زائدة الدرس الأول من الفصل الرابع.');
+const versionConfirm = confirm('❖ هذا الإصدار رقم: 1.0.\n\n❖ هل تود رؤية تفاصيل الإصدار؟');
 if (versionConfirm){
 gtag('event', 'version_button_click', {
 'event_category': 'Button',
 'event_label': 'version_button_click'
 });
+alert('❖ ملخص لأول ثلاثة فصول من المنهج زائدة الدرس الأول من الفصل الرابع.')
 }
 }
 
