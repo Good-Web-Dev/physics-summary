@@ -140,6 +140,17 @@ const texts = [
 
     getRandomText();
 
+function aboQahatGift(){
+var isAboQahat = localStorage.setItem('aqc', prompt('أدخل الرمز الخاص:'));
+}
+var aboQahatInput = localStorage.getItem('aqc');
+if(aboQahatInput == '505'){
+document.querySelector('.not-with-us').remove();
+var chaptersContainer = document.querySelector('.chapters-container');
+var withUs = document.querySelector('.with-us');
+withUs.setAttribute('include-html', 'fifth-chapter.html');
+}
+
 function printBtn(){
 const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى ٧٣٪؛ لتطبع لك كل صفحة بشكل كامل.');
 if (printingConfirm){
@@ -159,7 +170,7 @@ gtag('event', 'version_button_click', {
 'event_category': 'Button',
 'event_label': 'version_button_click'
 });
-alert('❖ ملخص لأول ثلاثة فصول من المنهج زائدة الدرس الأول من الفصل الرابع.')
+alert('❖ ملخص لأول ثلاثة فصول من المنهج زائدة الدرس الأول من الفصل الرابع.');
 }
 }
 

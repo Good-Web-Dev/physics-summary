@@ -83,7 +83,7 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </h3>
 <div class="marquee dont-print">
 <div>
-<p>مـلاحـظـة: تـم الاقـتـبـاس كـثـيـرًا فـي هـذا الـمـلـخـص مـن مـلـخـص الأسـتـاذ 
+<p>مـلاحـظـة: تـم الاقـتـبـاس كـثـيـرًا فـي هـذا <span onclick="aboQahatGift()">الـمـلـخـص</span> مـن مـلـخـص الأسـتـاذ 
 <a href="https://youtube.com/@zeyada">مـحـمـد زيـادة <sup><i class="fas fa fa-external-link-alt" style="transform:rotateY(180deg); font-size:10px;"></i></sup></a>
 ، جـزاه الـلّٰـه خـيـرًا.
 </p>
@@ -145,11 +145,14 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </table>
 </div>
 </div>
-<div include-html="first-chapter.html"></div>
+<div class="chapters-container">
+<div include-html="first-chapter.html" class="not-with-us"></div>
 <div include-html="second-chapter.html"></div>
 <div include-html="third-chapter.html"></div>
 <div include-html="fourth-chapter.html"></div>
+<div class="with-us"></div>
 <div class="break dont-print"></div>
+</div>
 <footer class="dont-print">
 <p id="footer-text"></p>
 </footer>
