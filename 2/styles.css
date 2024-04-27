@@ -201,7 +201,7 @@ opacity:0.5;
 .version{
 left:10px;
 }
-.print{
+.print, .download-pdf{
 left:calc(5*20px);
 }
 .color-inversion{

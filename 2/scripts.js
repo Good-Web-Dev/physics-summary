@@ -13,7 +13,7 @@ for (var i = 0; i < contentElements.length; i++) {
       contents[i].style.visibility = "visible";
       contents[i].style.animation = "fade-in 1s ease-in-out";
     }
-  }, 3000);
+  }, 4000);
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -40,7 +40,7 @@ function includeHTML() {
 includeHTML();
 window.setTimeout(function(){
 goIcludeHTML();
-}, 2000);
+}, 3000);
 
 window.addEventListener('scroll', function() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -140,15 +140,47 @@ const texts = [
 
     getRandomText();
 
-function aboQahatGift(){
-var isAboQahat = localStorage.setItem('aqc', prompt('أدخل الرمز الخاص:'));
+//localStorage.removeItem('vip');
+
+function vip_prompt(){
+var isVip = localStorage.setItem('vip', prompt('أدخل الرمز الخاص:'));
 }
-var aboQahatInput = localStorage.getItem('aqc');
-if(aboQahatInput == '505'){
-document.querySelector('.not-with-us').remove();
+var vipInput = localStorage.getItem('vip');
 var chaptersContainer = document.querySelector('.chapters-container');
-var withUs = document.querySelector('.with-us');
-withUs.setAttribute('include-html', 'fifth-chapter.html');
+if(vipInput == '505VIP' || vipInput == '505 VIP' || vipInput == '505vip' || vipInput == '505 vip' || vipInput == 'VIP505' || vipInput == 'vip505'){
+document.querySelector('.not-with-us').remove();
+document.querySelector('.not-with-us-2').remove();
+var itr = document.querySelector('.itr');
+itr.style.display="none";
+itr.removeAttribute('data-title');
+var vip2 = document.querySelector('.vip2');
+vip2.setAttribute('include-html', '2ndVIP.html');
+var vip505 = document.querySelector('.vip-505');
+vip505.setAttribute('include-html', '505VIP.html');
+var Marquee = document.querySelector('.marquee p');
+Marquee.innerHTML = "يـا أهـلًا وسـهـلًا بـأبـي قـحـط، حـيـاك اللّٰه، شـد حـيـلك أسـأل اللّٰه أن يـوفـقـك يـا غـالـي " + `<span style='font-family:monospace'>🫡</span>`;
+document.querySelector('.print').style.display = "none";
+var downloadPdf = document.querySelector('.download-pdf');
+downloadPdf.style.display = 'block';
+downloadPdf.setAttribute('onclick', 'location.href = "https://good-web-dev.github.io/physics-summary/2/505vip.pdf"');
+}
+else if(vipInput == 'VIP' || vipInput == 'vip'){
+var itr = document.querySelector('.itr');
+itr.style.display="none";
+itr.removeAttribute('data-title');
+document.querySelector('.not-with-us').remove();
+document.querySelector('.not-with-us-2').remove();
+var vip2 = document.querySelector('.vip2');
+vip2.setAttribute('include-html', '2ndVIP.html');
+var vip505 = document.querySelector('.vip');
+vip505.setAttribute('include-html', 'VIP.html');
+var Marquee = document.querySelector('.marquee p');
+var Marquee = document.querySelector('.marquee p');
+Marquee.innerHTML = "يـا أهـلًا وسـهـلًا بـأبـي عبـدالرحـمـن، حـيـاك اللّٰه، شـد حـيـلك أسـأل اللّٰه أن يـوفـقـك يـا غـالـي " + `<span style='font-family:monospace'>🫡</span>`;
+document.querySelector('.print').style.display = "none";
+var downloadPdf = document.querySelector('.download-pdf');
+downloadPdf.style.display = 'block';
+downloadPdf.setAttribute('onclick', 'location.href = "https://good-web-dev.github.io/physics-summary/2/vip.pdf"');
 }
 
 function printBtn(){
@@ -222,6 +254,7 @@ this.classList.toggle('hidden-exam');
 }
 
 function goIcludeHTML(){
+
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
   examBtnClicked = true;
@@ -244,7 +277,6 @@ for (var i = 0; i < srPages.length; i++) {
     });
   })(i);
 }
-
 
 const imgTags = document.querySelectorAll('img');
 

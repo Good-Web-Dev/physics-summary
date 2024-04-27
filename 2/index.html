@@ -66,6 +66,10 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 <br>
 <span class="print-tag">طباعة</span>
 </i></button>
+<button style="display: none;" class="download-pdf header-btns dont-print"><i class="fa fas fa-file-download">
+<br>
+<span class="download-tag">تحميل</span>
+</i></button>
 <button class="version header-btns dont-print" onclick="versionBtn()"><i class="fa fas fa-info-circle">
 <br>
 <span class="version-tag">الإصدار</span>
@@ -83,7 +87,7 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </h3>
 <div class="marquee dont-print">
 <div>
-<p>مـلاحـظـة: تـم الاقـتـبـاس كـثـيـرًا فـي هـذا <span onclick="aboQahatGift()">الـمـلـخـص</span> مـن مـلـخـص الأسـتـاذ 
+<p>مـلاحـظـة: تـم الاقـتـبـاس كـثـيـرًا فـي هـذا <span onclick="vip_prompt()">الـمـلـخـص</span> مـن مـلـخـص الأسـتـاذ 
 <a href="https://youtube.com/@zeyada">مـحـمـد زيـادة <sup><i class="fas fa fa-external-link-alt" style="transform:rotateY(180deg); font-size:10px;"></i></sup></a>
 ، جـزاه الـلّٰـه خـيـرًا.
 </p>
@@ -100,7 +104,7 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 <img data-img-name="cover">
 </div>
 <!-- ******************** ########## ******************** -->
-<div class="pages" data-title="الفهرس">
+<div class="pages itr" data-title="الفهرس">
 <div class="page no-page-number">
 <table class="index-table" style="width:90%; margin-top:20px;">
 <tr>
@@ -147,10 +151,12 @@ href="https://good-web-dev.github.io/physics-summary/2/icon.svg" color="#ffffff"
 </div>
 <div class="chapters-container">
 <div include-html="first-chapter.html" class="not-with-us"></div>
-<div include-html="second-chapter.html"></div>
+<div include-html="second-chapter.html" class="not-with-us-2"></div>
+<div class="vip2"></div>
 <div include-html="third-chapter.html"></div>
 <div include-html="fourth-chapter.html"></div>
-<div class="with-us"></div>
+<div class="vip"></div>
+<div class="vip-505"></div>
 <div class="break dont-print"></div>
 </div>
 <footer class="dont-print">
