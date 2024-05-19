@@ -1,3 +1,6 @@
+localStorage.removeItem('aqc');
+localStorage.removeItem('vip');
+
 var contentElements = document.querySelectorAll('.content');
 
 for (var i = 0; i < contentElements.length; i++) {
@@ -13,7 +16,7 @@ for (var i = 0; i < contentElements.length; i++) {
       contents[i].style.visibility = "visible";
       contents[i].style.animation = "fade-in 1s ease-in-out";
     }
-  }, 4000);
+  }, 3000);
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -140,49 +143,6 @@ const texts = [
 
     getRandomText();
 
-//localStorage.removeItem('vip');
-
-function vip_prompt(){
-var isVip = localStorage.setItem('vip', prompt('أدخل الرمز الخاص:'));
-}
-var vipInput = localStorage.getItem('vip');
-var chaptersContainer = document.querySelector('.chapters-container');
-if(vipInput == '505VIP' || vipInput == '505 VIP' || vipInput == '505vip' || vipInput == '505 vip' || vipInput == 'VIP505' || vipInput == 'vip505'){
-document.querySelector('.not-with-us').remove();
-document.querySelector('.not-with-us-2').remove();
-var itr = document.querySelector('.itr');
-itr.style.display="none";
-itr.removeAttribute('data-title');
-var vip2 = document.querySelector('.vip2');
-vip2.setAttribute('include-html', '2ndVIP.html');
-var vip505 = document.querySelector('.vip-505');
-vip505.setAttribute('include-html', '505VIP.html');
-var Marquee = document.querySelector('.marquee p');
-Marquee.innerHTML = "يـا أهـلًا وسـهـلًا بـأبـي قـحـط، حـيـاك اللّٰه، شـد حـيـلك أسـأل اللّٰه أن يـوفـقـك يـا غـالـي " + `<span style='font-family:monospace'>🫡</span>`;
-document.querySelector('.print').style.display = "none";
-var downloadPdf = document.querySelector('.download-pdf');
-downloadPdf.style.display = 'block';
-downloadPdf.setAttribute('onclick', 'location.href = "https://good-web-dev.github.io/physics-summary/2/505vip.pdf"');
-}
-else if(vipInput == 'VIP' || vipInput == 'vip'){
-var itr = document.querySelector('.itr');
-itr.style.display="none";
-itr.removeAttribute('data-title');
-document.querySelector('.not-with-us').remove();
-document.querySelector('.not-with-us-2').remove();
-var vip2 = document.querySelector('.vip2');
-vip2.setAttribute('include-html', '2ndVIP.html');
-var vip505 = document.querySelector('.vip');
-vip505.setAttribute('include-html', 'VIP.html');
-var Marquee = document.querySelector('.marquee p');
-var Marquee = document.querySelector('.marquee p');
-Marquee.innerHTML = "يـا أهـلًا وسـهـلًا بـأبـي عبـدالرحـمـن، حـيـاك اللّٰه، شـد حـيـلك أسـأل اللّٰه أن يـوفـقـك يـا غـالـي " + `<span style='font-family:monospace'>🫡</span>`;
-document.querySelector('.print').style.display = "none";
-var downloadPdf = document.querySelector('.download-pdf');
-downloadPdf.style.display = 'block';
-downloadPdf.setAttribute('onclick', 'location.href = "https://good-web-dev.github.io/physics-summary/2/vip.pdf"');
-}
-
 function printBtn(){
 const printingConfirm = confirm('⎙ قد يختلف التصميم عند الطباعة، وإذا كنت تستعمل آيفون أو آيباد فعدل تحجيم الصفحة في إعدادات الطباعة إلى ٧٣٪؛ لتطبع لك كل صفحة بشكل كامل.');
 if (printingConfirm){
@@ -202,7 +162,7 @@ gtag('event', 'version_button_click', {
 'event_category': 'Button',
 'event_label': 'version_button_click'
 });
-alert('❖ ملخص لأول ثلاثة فصول من المنهج زائدة الدرس الأول من الفصل الرابع.');
+alert('❖ ملخص لأول ثلاثة فصول من المنهج زائدة الدرس الأول من الفصل الرابع.')
 }
 }
 
@@ -254,7 +214,6 @@ this.classList.toggle('hidden-exam');
 }
 
 function goIcludeHTML(){
-
 var examModeState = localStorage.getItem('examModeState');
 if (examModeState === 'examMode') {
   examBtnClicked = true;
@@ -277,6 +236,7 @@ for (var i = 0; i < srPages.length; i++) {
     });
   })(i);
 }
+
 
 const imgTags = document.querySelectorAll('img');
 

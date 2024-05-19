@@ -49,6 +49,7 @@ src:url('https://good-web-dev.github.io/physics-summary/2/fonts/basmalah.woff2')
 --steelblue:#bfeaff;
 --light-orange:#ffbe95;
 --dark-blue:#094594;
+color:;
 --light-blue:#2B67A6;
 --skyblue:#BFD8EC;
 --light-skyblue:#AEC7DB;
@@ -201,7 +202,7 @@ opacity:0.5;
 .version{
 left:10px;
 }
-.print, .download-pdf{
+.print{
 left:calc(5*20px);
 }
 .color-inversion{
@@ -411,6 +412,9 @@ padding:12px 10px;
 font-size:18px;
 }
 .table .tr:nth-child(odd):not(.not-odd){
+background-color:var(--skyblue);
+}
+.odd{
 background-color:var(--skyblue);
 }
 .index-table .tr:nth-child(even){
