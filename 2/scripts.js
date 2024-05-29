@@ -10,13 +10,16 @@ for (var i = 0; i < contentElements.length; i++) {
   window.setTimeout(function() {
     var loaderBox = document.getElementById("loaderBox");
     loaderBox.style.opacity = "0";
+    loaderBox.style.animation = "fade-out 1s ease-in-out";
+window.setTimeout(function() {
     loaderBox.style.display = "none";
+}, 1000);
     var contents = document.getElementsByClassName("content");
     for (var i = 0; i < contents.length; i++) {
       contents[i].style.visibility = "visible";
       contents[i].style.animation = "fade-in 1s ease-in-out";
     }
-  }, 3000);
+  }, 3500);
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
@@ -110,13 +113,13 @@ const texts = [
       "سبحان اللّٰه وبحمده، سبحان اللّٰه العظيم",
       "لا إله إلا اللّٰه وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
       "لا حول ولا قوة إلا باللّٰه",
-      "اللّٰهم صلّ وسلم وبارك على سيدنا محمد",
+      "اللهم صلّ وسلم وبارك على سيدنا محمد",
       "سبحان اللّٰه، والحمد للّٰه، ولا إله إلا اللّٰه، واللّٰه أكبر",
       "الحمد للّٰه رب العالمين",
-      "أستغفر اللّٰه الذي لا إله إلا هو الحي القيوم، وأتوب إليه",
+      "أستغفر اللّٰه العظيم الذي لا إله إلا هو الحي القيوم وأتوب إليه",
       "اللّٰه أكبر كبيرًا، والحمد للّٰه كثيرًا، وسبحان اللّٰه بكرة وأصيلًا",
       "لا إله إلا أنت سبحانك إني كنت من الظالمين",
-      "اللّٰهم أعني على ذكرك، وشكرك، وحسن عبادتك"
+      "اللهم أعنّي على ذكرك، وشكرك، وحسن عبادتك"
     ];
 
     let previousText = null;
@@ -317,7 +320,7 @@ const updateHeaderTitle = () => {
   if (visiblePage) {
     const dataTitle = visiblePage.getAttribute('data-title');
     if (dataTitle) {
-      if (dataTitle.length >= 55) {
+ if (dataTitle.length >= 54) {
         headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
       } else {
         headerTitle.textContent = dataTitle;

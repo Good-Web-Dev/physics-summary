@@ -194,10 +194,13 @@ font-size:18px;
 font-family:helvetica-world-bold;
 font-weight: normal;
 }
-.header-btns:not(.exam, .color-inversion):hover:active{
-transition-duration:0.5s;
--webkit-transition:0.5s
-opacity:0.5;
+.header-btns:active:hover{
+cursor: pointer;
+}
+.header-btns:not(.exam, .color-inversion):active:hover{
+filter: brightness(1.2);
+transition:0.1s brightness ease-in-out;
+-webkit-transition:0.1s brightness ease-in-out;
 }
 .version{
 left:10px;
