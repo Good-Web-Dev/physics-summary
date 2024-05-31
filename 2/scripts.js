@@ -320,11 +320,7 @@ const updateHeaderTitle = () => {
   if (visiblePage) {
     const dataTitle = visiblePage.getAttribute('data-title');
     if (dataTitle) {
- if (dataTitle.length >= 54) {
-        headerTitle.innerHTML = `<span style="font-size: 28px">${dataTitle}</span>`;
-      } else {
-        headerTitle.textContent = dataTitle;
-      }
+        headerTitle.innerHTML = dataTitle;
       if (dataTitle !== previousTitle) {
         headerTitle.style.animation = 'none';
         void headerTitle.offsetWidth;
@@ -332,10 +328,10 @@ const updateHeaderTitle = () => {
       }
       previousTitle = dataTitle;
     } else {
-      headerTitle.textContent = previousTitle;
+      headerTitle.innerHTML = previousTitle;
     }
   } else {
-    headerTitle.textContent = previousTitle;
+    headerTitle.innerHTML = previousTitle;
   }
 };
 
